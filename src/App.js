@@ -8,32 +8,57 @@ function App() {
     lastName: '',
     email: '',
   });
+  
+const handelFirstNameChange = ({target}) => {
+  setValues((values) => ({
+    ...values,
+    firstName: target.value
+  })
+  )}
+  const handelLastNameChange = ({target}) => {
+    setValues((values) => ({
+      ...values,
+      lastName: target.value
+    })
+    )}
+    const handelEmailChange = ({target}) => {
+      setValues((values) => ({
+        ...values,
+        email: target.value
+      })
+      )}
 
   return (
-    <div class="form-container">
-      <form class="register-form">
+    <div className="form-container">
+      <form className="register-form">
         <input
           id="first-name"
-          class="form-field"
+          className="form-field"
           type="text"
           placeholder="First Name"
           name="firstName"
+          value={values.firstName}
+          onChange={handelFirstNameChange}
         />
         <input
           id="last-name"
-          class="form-field"
+          className="form-field"
           type="text"
           placeholder="Last Name"
           name="lastName"
+          value={values.lastName}
+          onChange={handelLastNameChange}
         />
         <input
           id="email"
-          class="form-field"
+          className="form-field"
           type="text"
           placeholder="Email"
           name="email"
+          value={values.email}
+          onChange={handelEmailChange}
         />
-        <button class="form-field" type="submit">
+        <button className="form-field" type="submit">
           Register
         </button>
       </form>
